@@ -1,6 +1,8 @@
-import jwt from 'jsonwebtoken'
-import config from '../config'
+import jwt from 'jsonwebtoken';
+import config from '../config';
 
+import User from "../models/User";
+import Role from "../models/Role"
 
 export const verifyToken = async (req, res, next) => {
     try {
@@ -24,7 +26,12 @@ export const verifyToken = async (req, res, next) => {
 
 
 export const isModerator = async (req, res, next) => {
-    
+    const user = await User.finById(req.userId)
+    const roles = await Role.find({_id: {$in: user.roles}})
+
+    console.log(roles);
+    next()
+
 }
 
 export const isAdmin= async (req, res, next) => {}
