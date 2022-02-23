@@ -1,16 +1,17 @@
 {
   "name": "products-api-company",
   "version": "1.0.0",
+  "description": "a simple rest api",
   "main": "index.js",
+
   "scripts": {
     "build": "babel src --out-dir build",
     "dev": "nodemon src/index.js --exec babel-node",
     "start": "node build/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Fazt",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
